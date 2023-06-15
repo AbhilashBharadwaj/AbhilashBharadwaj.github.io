@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/cobiwave/simplefolio/issues"
   },
-  "homepage": "https://github.com/AbhilashBharadwaj/AbhilashBharadwaj.github.io",
+  "homepage": "https://github.com/AbhilashBharadwaj/AbhilashBharadwaj.github.io/index.html",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.2",
     "gh-pages": "^5.0.0",

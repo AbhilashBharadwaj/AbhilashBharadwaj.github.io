@@ -48,34 +48,38 @@
   <script>
     $(document).ready(function () {
       $('#pdfModal').on('show.bs.modal', function (e) {
-        // Using Promises so that we can use the `render` method
-        pdfjsLib.getDocument('assets/resume.pdf').promise.then(function (pdfDoc_) {
-          // The first page
+        // Show the spinner
+        $("#spinner").show();
+
+        pdfjsLib.getDocument('assets/AbhilashSampath-Resume.pdf').promise.then(function (pdfDoc_) {
           pdfDoc_.getPage(1).then(function (page) {
             var scale = 1.5;
             var viewport = page.getViewport({ scale: scale });
 
-            // Prepare canvas using PDF page dimensions
             var canvas = $("#pdfViewer")[0];
             var context = canvas.getContext('2d');
             canvas.height = viewport.height;
             canvas.width = viewport.width;
 
-            // Resize the modal to fit the PDF
             $('.modal-dialog').css('max-width', canvas.width);
 
-            // Render PDF page into canvas context
             var renderContext = {
               canvasContext: context,
               viewport: viewport
             };
             var renderTask = page.render(renderContext);
+
+            // Hide the spinner when page is rendered
+            renderTask.promise.then(function () {
+              $("#spinner").hide();
+              $("#pdfViewer").removeClass("d-none");
+            });
           });
         });
       });
     });
-
   </script>
+
 
 </head>
 
@@ -84,6 +88,7 @@
   <div id="top"></div>
 
   <!-- Modal -->
+
   <div class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -94,11 +99,15 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          <canvas id="pdfViewer"></canvas>
+        <div class="modal-body d-flex justify-content-center align-items-center">
+          <!-- Add the spinner here, it will be shown while the PDF is loading -->
+          <div id="spinner" class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <canvas id="pdfViewer" class="d-none"></canvas>
         </div>
         <div class="modal-footer">
-          <a id="download" href="assets/resume.pdf" class="btn btn-primary" download>Download</a>
+          <a id="download" href="assets/AbhilashSampath-Resume.pdf" class="btn btn-primary" download>Download</a>
         </div>
       </div>
     </div>

@@ -16,29 +16,14 @@
 @import "./sass/sections/contact";
 @import "./sass/sections/hero";
 @import "./sass/sections/projects";
+@import "./sass/sections/experience";
 
-// .modal-dialog {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   min-width: 80%;
-// }
 
-// .modal-content {
-//   width: 100%;
-//   max-width: none;
-// }
-
-// .modal-body {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   padding: 2rem;
-//   overflow: auto;
-// }
 
 #pdfViewer {
   display: block;
   max-width: 100%;
   height: auto;
 }
+
+

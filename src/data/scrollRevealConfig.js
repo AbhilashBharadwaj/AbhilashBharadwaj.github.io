@@ -44,6 +44,34 @@ export const targetElements = [
     },
   },
   {
+    element: ".experience-wrapper__text", 
+    animation: {
+      delay: 600,  
+      origin: window.innerWidth > 768 ? "left" : "bottom",  
+    },
+  },
+  {
+    element: "experience-wrapper__bullet", 
+    animation: {
+      delay: 1000,  
+      origin: window.innerWidth > 768 ? "left" : "bottom",  
+    },
+  },
+  {
+    element: "experience-wrapper__text-title", 
+    animation: {
+      delay: 800,  
+      origin: window.innerWidth > 768 ? "left" : "bottom",  
+    },
+  },
+  {
+    element: "experience-wrapper__image", 
+    animation: {
+      delay: 800,  
+      origin: window.innerWidth > 768 ? "left" : "bottom",  
+    },
+  },
+  {
     element: ".project-wrapper__text",
     animation: {
       delay: 500,
